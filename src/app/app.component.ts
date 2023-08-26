@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ticket';
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('en'); // Set default language to Arabic
+  }
+
+  get isRtlLanguage() {
+    return this.translate.currentLang === 'ar';
+  }
 }

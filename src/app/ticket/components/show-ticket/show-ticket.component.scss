@@ -1,0 +1,25 @@
+.show-ticket{
+  background-image: url("../../../../assets/images/showTicketBg.svg");
+  overflow: hidden;
+}
+.dashedLine{
+position: relative;
+&::before,
+&::after
+{
+  content: "";
+  position: absolute;
+  top: 50%;
+  background-color: #fff;
+  width: 24px;
+  height: 27px;
+  transform: translateY(-50%);
+    border-radius: 50%;
+}
+&::before{
+  left: -12px;
+}
+&::after{
+  right: -12px;
+}
+}
