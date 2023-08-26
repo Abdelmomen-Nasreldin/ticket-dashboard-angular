@@ -1,0 +1,53 @@
+<div style="overflow-x:auto;" class="mat-elevation-z8 p-[7px] ">
+
+  <table class="w-full min-w-[700px] ">
+    <!-- Header Row -->
+    <thead class="bg-[#f8f8f9] rounded-md py-[15px]">
+      <tr>
+        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">#</th>
+        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.user" | translate }}</th>
+        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.ticketNumber" | translate }}</th>
+        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.price" | translate }}</th>
+        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.cinema" | translate }}</th>
+        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.personCount" | translate }}</th>
+        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.purchaseFrequency" | translate }}</th>
+      </tr>
+    </thead>
+    <!-- Table Body -->
+    <tbody class="divide-y divide-[#F3F3F5]">
+      <tr *ngFor="let element of dataSource">
+        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.id }}</td>
+        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.customer.name }}</td>
+        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.ticketNumber }}</td>
+        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.price }}</td>
+        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-tight">{{ element.cinemaName }}</td>
+        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.personCount }}</td>
+        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.purchaseFrequency }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+    [dir]="isRtlLanguage ? 'rtl' : 'ltr'"
+    class="flex items-center justify-between mt-4"
+  >
+    <div class="flex items-center space-x-2">
+      <button class="px-2 py-1 bg-gray-200 text-gray-600 rounded-lg focus:outline-none hover:bg-gray-300">
+        Previous
+      </button>
+      <button class="px-2 py-1 bg-gray-200 text-gray-600 rounded-lg focus:outline-none hover:bg-gray-300">
+        Next
+      </button>
+    </div>
+    <div class="text-gray-600">
+      <span class="mr-2">Page size:</span>
+      <select class="border rounded-md px-2 py-1 focus:outline-none focus:border-blue-400">
+        <option>5</option>
+        <option>50</option>
+        <option>60</option>
+      </select>
+    </div>
+  </mat-paginator>
+</div>

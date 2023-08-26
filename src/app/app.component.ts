@@ -14,4 +14,12 @@ export class AppComponent {
   get isRtlLanguage() {
     return this.translate.currentLang === 'ar';
   }
+  toggleLanguage() {
+    const currentLang = this.translate.currentLang;
+    const newLang = currentLang === 'ar' ? 'en' : 'ar';
+    this.translate.use(newLang);
+  }
+  getLanguageDirectionClass() {
+    return this.isRtlLanguage ? 'rtl' : 'ltr';
+  }
 }

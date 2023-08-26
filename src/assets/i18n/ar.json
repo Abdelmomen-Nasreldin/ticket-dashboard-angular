@@ -1,6 +1,34 @@
 {
   "ticket": {
     "offerMessage": "عرض التذكرة الخاصة بالفيلم",
-    "expiryMessage": "فعال حتى 15 يوليو 2023"
+    "expiryMessage": "فعال حتى 15 يوليو 2023",
+    "discount": "خصم"
+  },
+  "translations": {
+    "user": "المستخدم",
+    "cinema": "سينما",
+    "price": "السعر",
+    "ticketNumber": "رقم التذكرة",
+    "personCount": "عدد الأشخاص",
+    "purchaseFrequency": "تكرار الشراء",
+    "customer": {
+      "name": "الاسم",
+      "phoneNumber": "رقم الهاتف"
+    }
+  },
+  "tableData": {
+    "id": 1,
+    "type": "سينما",
+    "location": "صيدناوي مول , برج العرب",
+    "price": "$40",
+    "ticketNumber": "C-101",
+    "cinemaName": "سينما مصر , مول العرب , برج الأطنان , سرايا القبة",
+    "personCount": 1,
+    "purchaseFrequency": "مرة واحدة",
+    "customer": {
+      "name": "أحمد محمود",
+      "phoneNumber": "0123456789",
+      "avatar": "https://via.placeholder.com/30x30"
+    }
   }
 }
