@@ -1,8 +1,15 @@
 <button (click)="toggleLanguage()">Toggle Language</button>
 
-<div [ngClass]="isRtlLanguage ? 'rtl' : ''"  class="container">
-<div [class]="getLanguageDirectionClass()">
-  <app-show-ticket [isRtlLanguage]="isRtlLanguage"></app-show-ticket>
-</div>
-</div>
+<div [ngClass]="isRtlLanguage ? 'rtl' : ''" class="container mx-auto">
+  <div [class]="getLanguageDirectionClass()">
+    <div class="flex justify-between items-center my-5 flex-wrap gap-5">
 
+      <div class="chart w-[839px] h-[264px] max-w-full bg-white rounded-lg border border-gray-200">
+
+      </div>
+      
+      <app-show-ticket [isRtlLanguage]="isRtlLanguage"></app-show-ticket>
+    </div>
+    <app-table [isRtlLanguage]="isRtlLanguage"></app-table>
+  </div>
+</div>

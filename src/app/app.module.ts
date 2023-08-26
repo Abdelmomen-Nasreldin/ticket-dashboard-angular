@@ -33,7 +33,7 @@ export function HttpLoaderFactory(http: HttpClient) {
           }
         }),
         TicketModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
     ]
 })
 export class AppModule { }

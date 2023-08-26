@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang('ar'); // Set default language to Arabic
+    this.translate.setDefaultLang('en'); // Set default language to Arabic
   }
 
   get isRtlLanguage() {

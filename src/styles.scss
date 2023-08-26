@@ -47,6 +47,8 @@ $ticket-theme: mat.define-light-theme((
 }
 body{
   font-family: 'Neo Sans Arabic', sans-serif;
+  padding-left: 15px;
+  padding-right: 15px;
   *{
     box-sizing: border-box;
   }

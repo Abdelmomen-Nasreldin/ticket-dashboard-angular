@@ -1,6 +1,35 @@
 {
   "ticket": {
     "offerMessage": "View the ticket for the movie",
-    "expiryMessage": "Valid until July 15, 2023"
+    "expiryMessage": "Valid until July 15, 2023",
+    "discount": "discount"
+  },
+  "translations": {
+    "user": "user",
+    "cinema": "Cinema",
+    "price": "Price",
+    "ticketNumber": "Ticket Number",
+    "personCount": "Person Count",
+    "purchaseFrequency": "Purchase Frequency",
+    "customer": {
+      "name": "Name",
+      "phoneNumber": "Phone Number"
+    }
+  },
+  "tableData": {
+    "id": 1,
+    "type": "Cinema",
+    "location": "Sednawi Mall, Borg El Arab",
+    "price": "$40",
+    "ticketNumber": "C-101",
+    "cinemaName": "Cinema Masr, Mall El Arab, Borg El Attan, Sarayat El Qoba",
+    "personCount": 1,
+    "purchaseFrequency": "Once",
+    "customer": {
+      "name": "Ahmed Mahmoud",
+      "phoneNumber": "0123456789",
+      "avatar": "https://via.placeholder.com/30x30"
+    }
   }
+
 }
