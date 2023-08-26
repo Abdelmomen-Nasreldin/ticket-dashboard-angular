@@ -1,5 +1,8 @@
-<div [ngClass]="isRtlLanguage ? 'rtl' : ''" class="container">
+<button (click)="toggleLanguage()">Toggle Language</button>
 
-  <app-show-ticket></app-show-ticket>
+<div [ngClass]="isRtlLanguage ? 'rtl' : ''"  class="container">
+<div [class]="getLanguageDirectionClass()">
+  <app-show-ticket [isRtlLanguage]="isRtlLanguage"></app-show-ticket>
+</div>
 </div>
 
