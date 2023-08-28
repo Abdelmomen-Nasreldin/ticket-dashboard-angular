@@ -1,53 +1,59 @@
-<div style="overflow-x:auto;" class="mat-elevation-z8 p-[7px] ">
+<div
+  style="overflow-x: auto"
+  class="mat-elevation-z8 p-[7px] bg-white rounded-lg border border-zinc-100"
+>
+  <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-[700px] md:w-full">
+    <ng-container
+      *ngFor="let column of displayedColumns"
+      [matColumnDef]="column"
+      class="{{ isRtlLanguage ? 'text-right' : 'text-left' }}"
+    >
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        class="bg-[#f8f8f9] rounded-md pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal"
+      >
+        {{ "translations." + column | translate }}
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        class="{{ isRtlLanguage ? 'ar' : 'en' }}"
+      >
+      <ng-container *ngIf="column !== 'user'; else emptyParagraph">
+        {{ element[column] }}
+      </ng-container>
+      <ng-template #emptyParagraph>
+        <div class="flex items-center">
+          <img class="w-7 h-7 relative rounded-2xl" src="https://via.placeholder.com/30x30" alt="image">
+         <div class="spans mx-2">
+           <p text-gray-900 text-xs font-normal leading-tight>أحمد محمود</p>
+           <span class="text-gray-400 text-xs font-normal leading-tight">0123456789</span>
 
-  <table class="w-full min-w-[700px] ">
-    <!-- Header Row -->
-    <thead class="bg-[#f8f8f9] rounded-md py-[15px]">
-      <tr>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">#</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.user" | translate }}</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.ticketNumber" | translate }}</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.price" | translate }}</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.cinema" | translate }}</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.personCount" | translate }}</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.purchaseFrequency" | translate }}</th>
-      </tr>
-    </thead>
-    <!-- Table Body -->
-    <tbody class="divide-y divide-[#F3F3F5]">
-      <tr *ngFor="let element of dataSource">
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.id }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.customer.name }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.ticketNumber }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.price }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-tight">{{ element.cinemaName }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.personCount }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.purchaseFrequency }}</td>
-      </tr>
-    </tbody>
+         </div>
+        </div>
+      </ng-template>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-  <mat-paginator
-    [pageSizeOptions]="[5, 10, 20]"
-    showFirstLastButtons
-    aria-label="Select page of periodic elements"
-    [dir]="isRtlLanguage ? 'rtl' : 'ltr'"
-    class="flex items-center justify-between mt-4"
-  >
-    <div class="flex items-center space-x-2">
-      <button class="px-2 py-1 bg-gray-200 text-gray-600 rounded-lg focus:outline-none hover:bg-gray-300">
-        Previous
-      </button>
-      <button class="px-2 py-1 bg-gray-200 text-gray-600 rounded-lg focus:outline-none hover:bg-gray-300">
-        Next
-      </button>
-    </div>
-    <div class="text-gray-600">
-      <span class="mr-2">Page size:</span>
-      <select class="border rounded-md px-2 py-1 focus:outline-none focus:border-blue-400">
-        <option>5</option>
-        <option>50</option>
-        <option>60</option>
-      </select>
-    </div>
-  </mat-paginator>
+
+  <div class="flex justify-between items-center">
+    <mat-paginator
+      [hidePageSize]="true"
+      [length]="totalItems"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      showFirstLastButtons
+      (page)="pageChange($event)"
+    ></mat-paginator>
+    <app-paginator
+      class=" w-full"
+      [isRtlLanguage]="isRtlLanguage"
+      (page)="pageChange($event)"
+    ></app-paginator>
+  </div>
 </div>
