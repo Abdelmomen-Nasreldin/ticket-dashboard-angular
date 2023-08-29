@@ -10,7 +10,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
-import { TableModule } from 'primeng/table';
+// import { TableModule } from 'primeng/table';
 import { ChartComponent } from './components/chart/chart.component';
 import { AreaChartModule  , LineChartModule, NgxChartsModule } from '@swimlane/ngx-charts';
 import { PaginatorComponent } from './components/paginator/paginator.component';
@@ -33,12 +33,11 @@ import {  MatOptionModule } from '@angular/material/core';
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
-    TableModule,
     NgxChartsModule,
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
-    AreaChartModule 
+    AreaChartModule
   ],
   exports: [
     ShowTicketComponent,
