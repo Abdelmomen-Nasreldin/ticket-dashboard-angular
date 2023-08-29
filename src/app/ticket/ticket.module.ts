@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShowTicketComponent } from './components/show-ticket/show-ticket.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
@@ -12,7 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 
 import { TableModule } from 'primeng/table';
 import { ChartComponent } from './components/chart/chart.component';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { AreaChartModule  , LineChartModule, NgxChartsModule } from '@swimlane/ngx-charts';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import {  MatFormFieldModule } from '@angular/material/form-field';
 import {  MatSelectModule } from '@angular/material/select';
@@ -37,15 +37,16 @@ import {  MatOptionModule } from '@angular/material/core';
     NgxChartsModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatOptionModule
-
+    MatOptionModule,
+    AreaChartModule 
   ],
   exports: [
     ShowTicketComponent,
     TableComponent,
     TooltipComponent,
     ChartComponent
-  ]
+  ],
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TicketModule {
   imageSrc = '../../../../assets/images/';

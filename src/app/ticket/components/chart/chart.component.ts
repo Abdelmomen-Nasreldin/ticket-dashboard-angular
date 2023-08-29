@@ -1,41 +1,81 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { multi } from './data';
+import * as shape from 'd3-shape';
+
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss']
 })
-export class ChartComponent {
-  chartData = [
-    {
-      name: 'Bangladesh',
-      series: [
-        { value: 5842, name: '2016-09-21T11:45:02.163Z' },
-        { value: 2879, name: '2016-09-16T17:10:25.388Z' },
-        { value: 2167, name: '2016-09-18T12:01:55.392Z' },
-        { value: 5037, name: '2016-09-15T17:53:19.784Z' },
-        { value: 6357, name: '2016-09-15T17:31:58.391Z' },
-      ],
-    },
-    {
-      name: 'Liechtenstein',
-      series: [
-        { value: 5970, name: '2016-09-21T11:45:02.163Z' },
-        { value: 4342, name: '2016-09-16T17:10:25.388Z' },
-        { value: 3019, name: '2016-09-18T12:01:55.392Z' },
-        { value: 2031, name: '2016-09-15T17:53:19.784Z' },
-        { value: 4101, name: '2016-09-15T17:31:58.391Z' },
-      ],
-    },
-  ];
+export class ChartComponent implements OnInit {
 
-  colorScheme = 'cool';
-  showXAxis = true;
-  showYAxis = true;
-  showLegend = true;
-  showXAxisLabel = true;
-  showYAxisLabel = true;
-  xAxisLabel = 'Date';
-  yAxisLabel = 'Value';
-  showDataLabel = true;
+  multi!: any[]
+  // view: [number, number] = [700, 125];
+  curve = shape.curveBasis;
+
+  // options
+  legend: boolean = false;
+  autoSize: boolean = true;
+  showLabels: boolean = false;
+  animations: boolean = true;
+  xAxis: boolean = true;
+  yAxis: boolean = false;
+  showYAxisLabel: boolean = false;
+  showXAxisLabel: boolean = false;
+  xAxisLabel: string = 'Year';
+  yAxisLabel: string = 'Population';
+  timeline: boolean = false;
+  showGridLines: boolean = false;
+  colorScheme : any = {
+    domain: ['#8A74F9', 'rgba(138, 116, 249, 0.26)','rgba(138, 116, 249, 0.00)'],
+  };
+//   onResize(event: any) {
+//     this.view = [event.target.innerWidth / 1.5, 125];
+// }
+// const gradient = this.canvas.nativeElement.getContext('2d').createLinearGradient(0, 0, 0, 200);
+// gradient.addColorStop(0, 'blue');
+// gradient.addColorStop(1, 'white');
+  constructor() {
+    Object.assign(this, { multi });
+  }
+  ngOnInit() {
+    // this.data = [
+    //   {
+    //     "name": "January",
+    //     "value": 100
+    //   },
+    //   {
+    //     "name": "February",
+    //     "value": 150
+    //   },
+    //   {
+    //     "name": "March",
+    //     "value": 80
+    //   },
+    //   {
+    //     "name": "April",
+    //     "value": 200
+    //   },
+    //   {
+    //     "name": "May",
+    //     "value": 180
+    //   },
+    //   {
+    //     "name": "June",
+    //     "value": 120
+    //   },
+    //   {
+    //     "name": "July",
+    //     "value": 90
+    //   },
+    //   {
+    //     "name": "August",
+    //     "value": 250
+    //   }
+    // ];
+  }
+  onSelect(event: any) {
+    console.log(event);
+  }
 }

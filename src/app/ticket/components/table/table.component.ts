@@ -25,6 +25,7 @@ export interface PeriodicElement {
     phoneNumber: string;
     avatar: string;
   };
+  ticket: string
 }
 const ticketData: PeriodicElement[] = [
   {
@@ -41,6 +42,7 @@ const ticketData: PeriodicElement[] = [
       phoneNumber: '0123456789',
       avatar: 'https://via.placeholder.com/30x30',
     },
+    ticket : "رقم 22"
   },
   {
     id: 2,
@@ -56,6 +58,8 @@ const ticketData: PeriodicElement[] = [
       phoneNumber: '0123456789',
       avatar: 'https://via.placeholder.com/30x30',
     },
+    ticket : "رقم 22"
+
   },
   {
     id: 3,
@@ -71,6 +75,8 @@ const ticketData: PeriodicElement[] = [
       phoneNumber: '0123456789',
       avatar: 'https://via.placeholder.com/30x30',
     },
+    ticket : "رقم 22"
+
   },
   {
     id: 4,
@@ -86,8 +92,10 @@ const ticketData: PeriodicElement[] = [
       phoneNumber: '0123456789',
       avatar: 'https://via.placeholder.com/30x30',
     },
+    ticket : "رقم 22"
+
   },
- 
+
   // Add more ticket data objects here...
 ];
 
@@ -118,6 +126,7 @@ export class TableComponent implements AfterViewInit {
     'cinemaName',
     'personCount',
     'purchaseFrequency',
+    "ticket"
   ];
 //
 

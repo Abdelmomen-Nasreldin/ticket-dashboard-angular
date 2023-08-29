@@ -15,7 +15,8 @@
     "customer": {
       "name": "Name",
       "phoneNumber": "Phone Number"
-    }
+    },
+    "ticket": "ticket"
   },
   "tableData": {
     "id": 1,

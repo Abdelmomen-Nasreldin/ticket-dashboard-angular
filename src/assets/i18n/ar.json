@@ -15,7 +15,9 @@
     "customer": {
       "name": "الاسم",
       "phoneNumber": "رقم الهاتف"
-    }
+    },
+    "ticket": "التذكرة"
+
   },
   "tableData": {
     "id": 1,
