@@ -1,6 +1,6 @@
-<button (click)="toggleLanguage()">Toggle Language</button>
 
 <div [ngClass]="isRtlLanguage ? 'rtl' : ''" class="container mx-auto">
+  <button (click)="toggleLanguage()">Toggle Language</button>
   <div [class]="getLanguageDirectionClass()">
     <div class="flex justify-between items-center my-5 flex-wrap gap-5">
       <div
