@@ -1,53 +1,81 @@
-<div style="overflow-x:auto;" class="mat-elevation-z8 p-[7px] ">
+<div
+  style="overflow-x: auto"
+  class="mat-elevation-z8 p-[7px] bg-white rounded-lg border border-zinc-100"
+>
+  <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-[700px] md:w-full">
+    <ng-container
+      *ngFor="let column of displayedColumns"
+      [matColumnDef]="column"
+      class="{{ isRtlLanguage ? 'text-right' : 'text-left' }}"
+    >
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        class="bg-[#f8f8f9] rounded-md pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal"
+      >
+        {{ "translations." + column | translate }}
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        class="{{ isRtlLanguage ? 'ar' : 'en' }}"
+      >
+      <ng-container *ngIf="column !== 'user' && column !== 'ticket'; else (column == 'ticket' ? emptyAdmin   : emptyParagraph)">
+        {{ element[column] }}
+      </ng-container>
+      <ng-template #emptyParagraph>
+        <div class="flex items-center">
+          <img class="w-7 h-7 relative rounded-2xl" src="https://via.placeholder.com/30x30" alt="image">
+         <div class="spans mx-2">
+           <p text-gray-900 text-xs font-normal leading-tight>أحمد محمود</p>
+           <span class="text-gray-400 text-xs font-normal leading-tight">0123456789</span>
 
-  <table class="w-full min-w-[700px] ">
-    <!-- Header Row -->
-    <thead class="bg-[#f8f8f9] rounded-md py-[15px]">
-      <tr>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">#</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.user" | translate }}</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.ticketNumber" | translate }}</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.price" | translate }}</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.cinema" | translate }}</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.personCount" | translate }}</th>
-        <th class="{{ isRtlLanguage ? 'text-right' : 'text-left' }} pt-[11px] pb-[7.5px] text-zinc-400 text-sm font-normal leading-normal">{{ "translations.purchaseFrequency" | translate }}</th>
-      </tr>
-    </thead>
-    <!-- Table Body -->
-    <tbody class="divide-y divide-[#F3F3F5]">
-      <tr *ngFor="let element of dataSource">
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.id }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.customer.name }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.ticketNumber }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.price }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-tight">{{ element.cinemaName }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.personCount }}</td>
-        <td class="pt-[11px] pb-[7.5px] px-[7.5px] text-gray-900 text-sm font-normal leading-normal">{{ element.purchaseFrequency }}</td>
-      </tr>
-    </tbody>
+         </div>
+        </div>
+
+      </ng-template>
+      <ng-template #emptyAdmin>
+        <div class=" justify-center items-center gap-6 inline-flex">
+          <div class="svg1 flex justify-center items-center w-8 h-8 bg-[rgba(138,116,249,0.10)] rounded-[7.917px]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M11.4104 3.2665C11.4104 3.27275 11.4104 3.27275 11.4104 3.279C11.2542 3.27275 11.0979 3.2665 10.9292 3.2665H6.11668L6.78543 2.604C7.39793 1.98525 8.07293 1.4165 8.85418 1.4165C9.64168 1.4165 10.3167 1.98525 10.9292 2.604L11.2792 2.954C11.3667 3.03525 11.4104 3.14775 11.4104 3.2665Z" fill="#8A74F9"/>
+              <path d="M13.6917 8.39775C13.9354 8.39775 14.1292 8.19775 14.1292 7.94775V7.39775C14.1292 4.9415 13.3792 4.19775 10.9292 4.19775H6.99168H5.40418C2.95418 4.19775 2.20418 4.94775 2.20418 7.39775V7.6665C2.20418 7.9165 2.39793 8.11025 2.64168 8.11025C3.16668 8.11025 3.58543 8.53525 3.58543 9.054C3.58543 9.57275 3.16668 10.004 2.64168 10.004C2.39793 10.004 2.20418 10.1978 2.20418 10.4478V10.7165C2.20418 13.1728 2.95418 13.9165 5.40418 13.9165H6.98543H10.9229C13.3729 13.9165 14.1229 13.1665 14.1229 10.7165C14.1229 10.4728 13.9292 10.2728 13.6854 10.2728C13.1604 10.2728 12.7417 9.854 12.7417 9.33525C12.7479 8.8165 13.1667 8.39775 13.6917 8.39775ZM7.42918 11.954C7.42918 12.1978 7.22918 12.3978 6.98543 12.3978C6.74168 12.3978 6.54168 12.1978 6.54168 11.954V10.279C6.54168 10.0353 6.74168 9.83525 6.98543 9.83525C7.22918 9.83525 7.42918 10.0353 7.42918 10.279V11.954ZM7.42918 7.83525C7.42918 8.079 7.22918 8.279 6.98543 8.279C6.74168 8.279 6.54168 8.079 6.54168 7.83525V6.16025C6.54168 5.9165 6.74168 5.7165 6.98543 5.7165C7.22918 5.7165 7.42918 5.9165 7.42918 6.16025V7.83525Z" fill="#8A74F9"/>
+              </svg>
+          </div>
+          <div class="text">
+            <p class="text-black text-xs font-normal leading-none">تذكرة رقم 45.pdf</p>
+            <span class="text-right text-black text-opacity-40 text-xs font-normal leading-none">9mb.pdf</span>
+          </div>
+          <div class="svg2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M11.0667 17.3332H6.26666C2.26666 17.3332 0.666656 15.7332 0.666656 11.7332V6.93319C0.666656 2.93319 2.26666 1.33319 6.26666 1.33319H11.0667C15.0667 1.33319 16.6667 2.93319 16.6667 6.93319V11.7332C16.6667 15.7332 15.0667 17.3332 11.0667 17.3332Z" stroke="#8A74F9" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.8333 9.25801L8.33333 11.758L5.83333 9.25801M8.33333 11.758V5.09134M13.3333 13.4247C10.0917 14.508 6.575 14.508 3.33333 13.4247" stroke="#8A74F9" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+          </div>
+        </div>
+
+      </ng-template>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-  <mat-paginator
-    [pageSizeOptions]="[5, 10, 20]"
-    showFirstLastButtons
-    aria-label="Select page of periodic elements"
-    [dir]="isRtlLanguage ? 'rtl' : 'ltr'"
-    class="flex items-center justify-between mt-4"
-  >
-    <div class="flex items-center space-x-2">
-      <button class="px-2 py-1 bg-gray-200 text-gray-600 rounded-lg focus:outline-none hover:bg-gray-300">
-        Previous
-      </button>
-      <button class="px-2 py-1 bg-gray-200 text-gray-600 rounded-lg focus:outline-none hover:bg-gray-300">
-        Next
-      </button>
-    </div>
-    <div class="text-gray-600">
-      <span class="mr-2">Page size:</span>
-      <select class="border rounded-md px-2 py-1 focus:outline-none focus:border-blue-400">
-        <option>5</option>
-        <option>50</option>
-        <option>60</option>
-      </select>
-    </div>
-  </mat-paginator>
+
+  <div class="flex justify-between items-center">
+    <mat-paginator
+      [hidePageSize]="true"
+      [length]="totalItems"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      showFirstLastButtons
+      (page)="pageChange($event)"
+    ></mat-paginator>
+    <app-paginator
+      class=" w-full"
+      [isRtlLanguage]="isRtlLanguage"
+      (page)="pageChange($event)"
+    ></app-paginator>
+  </div>
 </div>

@@ -1,0 +1,15 @@
+.chart-container
+{
+  width: 100%;
+  max-width: 100%  !important;
+  display: flex;
+  flex: 1;
+}
+
+// g.ng-star-inserted g {
+//   fill: #9291A5 !important;
+// }
+::ng-deep g.ng-star-inserted g {
+  fill: #9291A5 !important;
+}
+

@@ -1,0 +1,94 @@
+
+<div class="pagination-container w-[700px] md:w-full flex justify-between items-center" [dir]="isRtlLanguage ? 'rtl' : 'ltr'">
+
+<div class="page-numbers" >
+  <button mat-button class="mx-4" (click)="previousPage()">
+      <svg
+      *ngIf="isRtlLanguage; else rtlArrow"
+      xmlns="http://www.w3.org/2000/svg"
+      width="7"
+      height="11"
+      viewBox="0 0 7 11"
+      fill="none"
+    >
+      <path
+        d="M1.60031 1.31L6.04781 5.75L1.60031 10.19"
+        stroke="#7E8299"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    <ng-template #rtlArrow>
+      <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="7"
+      height="11"
+      viewBox="0 0 7 11"
+      fill="none"
+    >
+      <path
+        d="M5.7128 1.31L1.2653 5.75L5.7128 10.19"
+        stroke="#7E8299"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    </ng-template>
+  </button>
+  <ng-container *ngFor="let page of pageNumbers">
+    <button class="w-7 h-7 py-1.5 mx-1.5 origin-top-left rounded justify-center items-center inline-flex"
+            mat-button [class.current]="page === currentPage"
+            [ngClass]="{'bg-violet-500 text-white': page === currentPage}"
+            (click)="goToPage(page)">
+      <div class="text-center text-sm leading-3">{{ page }}</div>
+    </button>
+  </ng-container>
+  <button mat-button class="mx-4" (click)="nextPage()">
+      <svg
+      *ngIf="isRtlLanguage; else ltrArrow"
+      xmlns="http://www.w3.org/2000/svg"
+      width="7"
+      height="11"
+      viewBox="0 0 7 11"
+      fill="none"
+    >
+      <path
+        d="M5.7128 1.31L1.2653 5.75L5.7128 10.19"
+        stroke="#7E8299"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    <ng-template #ltrArrow>
+      <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="7"
+      height="11"
+      viewBox="0 0 7 11"
+      fill="none"
+    >
+      <path
+        d="M1.60031 1.31L6.04781 5.75L1.60031 10.19"
+        stroke="#7E8299"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    </ng-template>
+  </button>
+</div>
+<div class="page-size-selector flex justify-center items-center gap-[0.375rem]">
+  <p class="text-zinc-800 text-sm font-normal">show</p>
+  <mat-form-field appearance="outline" class="w-20">
+    <!-- <mat-label>Page Size</mat-label> -->
+    <mat-select [(value)]="pageSize" (selectionChange)="changePageSize()">
+      <mat-option class="text-zinc-800 text-xs font-semibold !important" *ngFor="let option of pageSizeOptions" [value]="option">{{ option }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p class="text-zinc-800 text-sm font-normal">from 250</p>
+</div>
+</div>

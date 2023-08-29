@@ -3,11 +3,12 @@
 <div [ngClass]="isRtlLanguage ? 'rtl' : ''" class="container mx-auto">
   <div [class]="getLanguageDirectionClass()">
     <div class="flex justify-between items-center my-5 flex-wrap gap-5">
+      <div
+        class="chart pb-4 pt-5 px-5 w-[839px] h-full max-w-full bg-white rounded-lg border border-gray-200"
+      >
+      <app-chart></app-chart>
+    </div>
 
-      <div class="chart w-[839px] h-[264px] max-w-full bg-white rounded-lg border border-gray-200">
-
-      </div>
-      
       <app-show-ticket [isRtlLanguage]="isRtlLanguage"></app-show-ticket>
     </div>
     <app-table [isRtlLanguage]="isRtlLanguage"></app-table>

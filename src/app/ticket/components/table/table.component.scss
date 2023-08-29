@@ -1,0 +1,69 @@
+
+/* pagination.component.css */
+// ::ng-deep .mat-paginator-outer-container .mat-paginator-range-actions {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   background-color: aqua;
+//   .mat-mdc-paginator-container{
+//     justify-content: space-between !important;
+
+//   }
+// }
+.ar{
+  text-align: right !important;
+}
+.en{
+  text-align: left !important;
+}
+::ng-deep .mat-elevation-z8{
+  box-shadow: none !important;
+  // width: 1200px;
+  // min-width: 700px !important;
+}
+::ng-deep table, th, td{
+  font-family: Neo Sans Arabic !important;
+  box-shadow: none !important;
+}
+::ng-deep .ar{
+ text-align: right;
+}
+::ng-deep thead{
+  background-color: #f8f8f9 !important;
+  border-radius: 0.25rem !important;
+  padding-top: 11px !important;
+  padding-bottom: 7.5px !important;
+  color: #c4c4c4 !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  line-height: 1.25rem !important;
+}
+::ng-deep .mat-mdc-cell{
+  color: #1C1C28 !important;
+leading-trim: both !important;
+text-edge: cap !important;
+font-size: 0.82994rem !important;
+font-style: normal !important;
+font-weight: 400 !important;
+
+}
+::ng-deep .mat-paginator-range-label {
+  font-weight: bold;
+  color: red;
+}
+::ng-deep .mat-mdc-paginator-container{
+  justify-content: space-between !important;
+  .mat-mdc-paginator-range-actions{
+    display: none;
+  }
+  .mat-mdc-paginator-page-size{ // pagination container
+    order: 1 !important;
+  }
+  .mat-mdc-paginator-range-label{ // pagination label
+    order: 1 !important;
+  }
+  [ng-reflect-message="Next page"]{ // Next Button
+    order: 2 !important;
+  }
+}
+

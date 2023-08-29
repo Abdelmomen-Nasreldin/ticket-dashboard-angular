@@ -1,6 +1,30 @@
-<!-- <ngx-charts-area-normalized-chart
-[view]="[700, 400]"
-[results]="chartData"
+<div class="wrapper">
+<div class="content flex justify-between  mb-9">
+  <div class="text">
+    <p class=" text-gray-900 text-sm font-normal leading-3">إحصائيات إستخدام القسيمة</p>
+    <span class=" text-slate-400 text-sm font-medium leading-3">05 يوليو , 2023 - 05 أغسطس , 2023</span>
+  </div>
+  <select name="" id="" class="w-16 h-8 bg-neutral-50 rounded-lg border border-gray-200 text-gray-900 text-xs font-normal leading-none">
+    <option value="سنويا" >سنويا</option>
+  </select>
+</div>
+<div class="chart-container">
 
->
-</ngx-charts-area-normalized-chart> -->
+<ngx-charts-area-chart
+[scheme]="colorScheme"
+[curve]="curve"
+[gradient]="true"
+  [legend]="legend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [timeline]="timeline"
+  [results]="multi"
+  [showGridLines]="showGridLines"
+  (select)="onSelect($event)">
+</ngx-charts-area-chart>
+</div>
+</div>

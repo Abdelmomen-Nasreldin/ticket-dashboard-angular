@@ -5,8 +5,9 @@
     "discount": "discount"
   },
   "translations": {
+    "id": "#",
     "user": "user",
-    "cinema": "Cinema",
+    "cinemaName": "Cinema",
     "price": "Price",
     "ticketNumber": "Ticket Number",
     "personCount": "Person Count",
@@ -14,7 +15,8 @@
     "customer": {
       "name": "Name",
       "phoneNumber": "Phone Number"
-    }
+    },
+    "ticket": "ticket"
   },
   "tableData": {
     "id": 1,

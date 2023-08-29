@@ -5,8 +5,9 @@
     "discount": "خصم"
   },
   "translations": {
+    "id": "#",
     "user": "المستخدم",
-    "cinema": "سينما",
+    "cinemaName": "سينما",
     "price": "السعر",
     "ticketNumber": "رقم التذكرة",
     "personCount": "عدد الأشخاص",
@@ -14,7 +15,9 @@
     "customer": {
       "name": "الاسم",
       "phoneNumber": "رقم الهاتف"
-    }
+    },
+    "ticket": "التذكرة"
+
   },
   "tableData": {
     "id": 1,
